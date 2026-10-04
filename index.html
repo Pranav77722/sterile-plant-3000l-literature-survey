@@ -179,16 +179,23 @@
           </div>
         </div>
 
-        <!-- Filter Chips -->
-        <div class="category-chips">
-          <button class="chip-btn active" data-filter="all">All Literature (10)</button>
-          <button class="chip-btn" data-filter="siemens">Siemens S7-1200 / PLC (3)</button>
-          <button class="chip-btn" data-filter="cip-sip">CIP / SIP Sequences (1)</button>
-          <button class="chip-btn" data-filter="safety">Safety Guards & Interlocks (3)</button>
-          <button class="chip-btn" data-filter="scada">SCADA & Data Acquisition (7)</button>
-          <button class="chip-btn" data-filter="motor-vfd">Motor & VFD Regulation (2)</button>
-          <button class="chip-btn" data-filter="alarm">Alarm Rationalization (1)</button>
+        <!-- Filter Chips Carousel -->
+        <div class="category-chips-wrapper">
+          <div class="category-chips">
+            <button class="chip-btn active" data-filter="all">All Literature (10)</button>
+            <button class="chip-btn" data-filter="siemens">Siemens S7-1200 / PLC (3)</button>
+            <button class="chip-btn" data-filter="cip-sip">CIP / SIP Sequences (1)</button>
+            <button class="chip-btn" data-filter="safety">Safety Guards & Interlocks (3)</button>
+            <button class="chip-btn" data-filter="scada">SCADA & Data Acquisition (7)</button>
+            <button class="chip-btn" data-filter="motor-vfd">Motor & VFD Regulation (2)</button>
+            <button class="chip-btn" data-filter="alarm">Alarm Rationalization (1)</button>
+          </div>
         </div>
+      </div>
+
+      <!-- Mobile Scroll Hint -->
+      <div class="table-scroll-hint">
+        <span>↔</span> Swipe horizontally to view full table, or switch to Card View above
       </div>
 
       <!-- Table View Container -->
@@ -991,6 +998,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Floating Bottom Dock Navigation -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+    <ul class="mobile-dock-items">
+      <li><a href="#intro"><span class="dock-icon">📖</span><span>Intro</span></a></li>
+      <li><a href="#matrix"><span class="dock-icon">📊</span><span>Studies</span></a></li>
+      <li><a href="#insights"><span class="dock-icon">💡</span><span>Insights</span></a></li>
+      <li><a href="#architecture"><span class="dock-icon">⚙️</span><span>Specs</span></a></li>
+      <li><a href="#references"><span class="dock-icon">📚</span><span>Refs</span></a></li>
+      <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"><span class="dock-icon">⬆️</span><span>Top</span></a></li>
+    </ul>
+  </nav>
 
   <script src="app.js"></script>
 </body>

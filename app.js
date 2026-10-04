@@ -221,7 +221,8 @@ const LITERATURE_DATA = [
 // State Management
 let currentFilter = "all";
 let currentSearch = "";
-let currentView = "table"; // 'table' or 'grid'
+// Automatically default to card grid on mobile screens for superior readability
+let currentView = window.innerWidth <= 768 ? "grid" : "table";
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -229,10 +230,67 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearch();
   setupViewToggles();
   setupPrintExport();
+  setupMobileDock();
   renderLiterature();
 });
 
-// Theme Management
+// View Toggles
+function setupViewToggles() {
+  const tableBtn = document.getElementById("tableViewBtn");
+  const gridBtn = document.getElementById("gridViewBtn");
+
+  if (tableBtn && gridBtn) {
+    if (currentView === "grid") {
+      gridBtn.classList.add("active");
+      tableBtn.classList.remove("active");
+    } else {
+      tableBtn.classList.add("active");
+      gridBtn.classList.remove("active");
+    }
+
+    tableBtn.addEventListener("click", () => {
+      currentView = "table";
+      tableBtn.classList.add("active");
+      gridBtn.classList.remove("active");
+      renderLiterature();
+    });
+
+    gridBtn.addEventListener("click", () => {
+      currentView = "grid";
+      gridBtn.classList.add("active");
+      tableBtn.classList.remove("active");
+      renderLiterature();
+    });
+  }
+}
+
+// Active link highlighting for Mobile Bottom Dock
+function setupMobileDock() {
+  const dockLinks = document.querySelectorAll(".mobile-dock-items a");
+  const sections = document.querySelectorAll("section[id]");
+
+  if (dockLinks.length && sections.length) {
+    window.addEventListener("scroll", () => {
+      let currentSectionId = "";
+      const scrollPos = window.scrollY + 200;
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      dockLinks.forEach(link => {
+        link.classList.remove("active");
+        if (currentSectionId && link.getAttribute("href") === `#${currentSectionId}`) {
+          link.classList.add("active");
+        }
+      });
+    }, { passive: true });
+  }
+}
 function initTheme() {
   const savedTheme = localStorage.getItem("survey-theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
@@ -280,28 +338,6 @@ function setupSearch() {
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       currentSearch = e.target.value.toLowerCase().trim();
-      renderLiterature();
-    });
-  }
-}
-
-// View Toggles
-function setupViewToggles() {
-  const tableBtn = document.getElementById("tableViewBtn");
-  const gridBtn = document.getElementById("gridViewBtn");
-
-  if (tableBtn && gridBtn) {
-    tableBtn.addEventListener("click", () => {
-      currentView = "table";
-      tableBtn.classList.add("active");
-      gridBtn.classList.remove("active");
-      renderLiterature();
-    });
-
-    gridBtn.addEventListener("click", () => {
-      currentView = "grid";
-      gridBtn.classList.add("active");
-      tableBtn.classList.remove("active");
       renderLiterature();
     });
   }
