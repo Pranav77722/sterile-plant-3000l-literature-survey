@@ -1,5 +1,12 @@
 # Literature Review: 3000 LTR Fully Automatic Sterile Manufacturing Plant
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sterile-plant-3000l.vercel.app)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Pranav77722/sterile-plant-3000l-literature-survey)
+
+🔗 **Live Production URL:** [https://sterile-plant-3000l.vercel.app](https://sterile-plant-3000l.vercel.app)  
+📦 **GitHub Repository:** [https://github.com/Pranav77722/sterile-plant-3000l-literature-survey](https://github.com/Pranav77722/sterile-plant-3000l-literature-survey)
+
+
 An executive, peer-reviewed engineering literature survey evaluating industrial automation, deterministic programmable logic controllers (PLCs), Supervisory Control and Data Acquisition (SCADA) systems, automated Cleaning-In-Place (CIP)/Steam-In-Place (SIP) routines, formal safety logical interlocks, and alarm rationalization (ANSI/ISA-18.2) for a **3000 LTR Fully Automatic Sterile Manufacturing Plant**.
 
 ---
